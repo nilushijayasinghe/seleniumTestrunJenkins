@@ -19,13 +19,13 @@ public class firsttest {
         System.setProperty("webdriver.chrome.driver","/home/nilushi/Documents/chatbot/seleniumTestrunJenkins/libs/chromedriver");
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("start-maximized"); // open Browser in maximized mode
-        options.addArguments("disable-infobars"); // disabling infobars
-        options.addArguments("--disable-extensions"); // disabling extensions
-        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-        options.addArguments("--no-sandbox"); // Bypass OS security model
+        options.addArguments("--no-sandbox"); //Bypass OS security model
+        options.addArguments("--start-maximized");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless");
+        //webDriver = new ChromeDriver(options);
 
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
 
 
