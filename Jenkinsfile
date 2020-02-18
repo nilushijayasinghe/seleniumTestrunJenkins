@@ -5,7 +5,7 @@ pipeline {
 
             steps {
 				sh 'rm -rf seleniumTestrunJenkins_rc'
-                sh 'git clone https:https://github.com/nilushijayasinghe/seleniumTestrunJenkins.git seleniumTestrunJenkins_rc'
+                sh 'git clone https://github.com/nilushijayasinghe/seleniumTestrunJenkins.git seleniumTestrunJenkins_rc'
                 sh 'cd seleniumTestrunJenkins_rc'
                 sh 'mvn clean compile'
              }
