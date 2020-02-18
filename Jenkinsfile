@@ -6,7 +6,7 @@ pipeline {
             steps {
 				sh 'rm -rf chat_bot_rc'
                 sh 'git clone https:https://github.com/nilushijayasinghe/seleniumTestrunJenkins.git seleniumTestrunJenkins_rc'
-                sh 'cd chat_bot_rc'
+                sh 'seleniumTestrunJenkins_rc'
                 sh 'mvn clean compile'
              }
         }
