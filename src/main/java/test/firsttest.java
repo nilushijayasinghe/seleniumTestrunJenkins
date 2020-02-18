@@ -15,9 +15,7 @@ public class firsttest {
 
     @BeforeClass(alwaysRun = true)
     public void setUp() throws Exception{
-
         System.setProperty("webdriver.chrome.driver","/home/nilushi/Documents/chatbot/seleniumTestrunJenkins/libs/chromedriver");
-
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox"); //Bypass OS security model
         options.addArguments("--start-maximized");
