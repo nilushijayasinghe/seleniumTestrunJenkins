@@ -1,0 +1,58 @@
+package test;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
+
+public class firsttest {
+
+    private ChromeDriver driver;
+
+    @BeforeClass(alwaysRun = true)
+    public void setUp() throws Exception{
+
+        System.setProperty("webdriver.chrome.driver","/home/nilushi/Documents/chatbot/seleniumTestrunJenkins/libs/chromedriver");
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("start-maximized"); // open Browser in maximized mode
+        options.addArguments("disable-infobars"); // disabling infobars
+        options.addArguments("--disable-extensions"); // disabling extensions
+        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+        options.addArguments("--no-sandbox"); // Bypass OS security model
+
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+
+
+    }
+
+    @Test
+    public void successfulLogin() throws Exception{
+
+        driver.get("http://192.168.86.51:802/admin/login.jsf");
+
+        driver.findElement(By.xpath("//input[@id='j_idt13:j_idt18']")).sendKeys("superuser");
+
+        driver.findElement(By.xpath("//input[@id='j_idt13:j_idt21']")).sendKeys("123456");
+
+        driver.findElement(By.xpath("//span[@class='ui-button-text ui-c']")).click();
+
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+        driver.findElement(By.xpath("//img[@id='j_idt17']")).click();
+
+        driver.findElement(By.xpath("//a[@id='j_idt22:j_idt23']")).click();
+    }
+
+    @AfterClass(alwaysRun = true)
+    public void tearDown() throws Exception{
+        driver.quit();
+    }
+
+
+}
