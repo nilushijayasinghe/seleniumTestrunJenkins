@@ -2,20 +2,23 @@ package test;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
-public class Webdriverdefinition {
+public class HeadlessBrowser {
 
     public static WebDriver driver = null;
-    public Webdriverdefinition()
+    public HeadlessBrowser()
     {
         if(driver == null)
         {
-            //Mention path of chrome driver of your system
-            String exePath = "/home/nilushi/Documents/chatbot/seleniumTestrunJenkins/libs/chromedriver";
             System.setProperty("webdriver.chrome.driver","/home/nilushi/Documents/chatbot/seleniumTestrunJenkins/libs/chromedriver");
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--no-sandbox"); //Bypass OS security model
+            options.addArguments("--start-maximized");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--headless");
+            driver = new ChromeDriver(options);
             driver.manage().window().maximize();
-            System.out.println("**Chrome driver initiated**");
         }
         else
         {
@@ -32,3 +35,4 @@ public class Webdriverdefinition {
 
     }
 }
+

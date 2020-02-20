@@ -1,33 +1,12 @@
 package test;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class firsttest extends Webdriverdefinition{
-
-    private ChromeDriver driver;
-
-    @BeforeClass(alwaysRun = true)
-    public void setUp() throws Exception{
-        System.setProperty("webdriver.chrome.driver","/home/nilushi/Documents/chatbot/seleniumTestrunJenkins/libs/chromedriver");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox"); //Bypass OS security model
-        options.addArguments("--start-maximized");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--headless");
-        //webDriver = new ChromeDriver(options);
-
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-
-
-    }
+public class SecondTest extends HeadlessBrowser{
 
     @Test
     public void successfulLogin() throws Exception{
